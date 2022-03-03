@@ -1,0 +1,13 @@
+<div class="card mx-3 my-4">
+    <div class="card-body">
+      <h3 class="card-title">Post Your Stuffs !!!</h3>
+      <div class="row mb-2">
+        <div class="col">
+          <input class="form-control mb-3" placeholder="Enter title" [(ngModel)]="tittle" (ngModelChange)="validate()">
+
+          <textarea class="form-control" placeholder="Enter anything that you want" [(ngModel)]="post" (ngModelChange)="validate()"></textarea>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="createPost()" [disabled]="!allowPost">Post</button>
+    </div>
+</div>
