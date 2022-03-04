@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Iposts } from './posts/create-posts/create-posts.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mean-stack-app';
+  public posts: Iposts[] = [];
+
+  addPost(post: Iposts) {
+    this.posts.push(post);
+  }
 }

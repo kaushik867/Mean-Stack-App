@@ -26,10 +26,10 @@
         </div>
     </nav>
     <div>
-        <app-create-posts></app-create-posts>
+        <app-create-posts (postCreated)="addPost($event)"></app-create-posts>
     </div>
     <div>
-        <app-post-lists></app-post-lists>
+        <app-post-lists [postLists]="posts"></app-post-lists>
     </div>
     
 </div>

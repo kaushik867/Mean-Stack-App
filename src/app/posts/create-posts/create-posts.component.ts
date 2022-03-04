@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-create-posts',
@@ -10,6 +10,7 @@ export class CreatePostsComponent implements OnInit {
   public tittle:string = '';
   public post:string = '';
   public allowPost:boolean = false;
+  @Output() postCreated = new EventEmitter();
 
   constructor() { }
 
@@ -24,6 +25,22 @@ export class CreatePostsComponent implements OnInit {
     this.allowPost = false;
   }
   createPost() {
-    
+    if (this.allowPost) {
+      const post = {
+        tittle: this.tittle,
+        post: this.post,
+      }
+
+      this.postCreated.emit(post);
+
+      this.tittle = '';
+      this.post = '';
+    }
   }
+}
+
+
+export interface Iposts {
+  tittle: string,
+  post: string,
 }
